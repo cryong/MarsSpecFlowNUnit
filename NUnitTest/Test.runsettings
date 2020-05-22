@@ -1,0 +1,8 @@
+﻿<RunSettings>
+	<!-- Parameters used by tests at runtime -->
+	<TestRunParameters>
+		<Parameter name ="testParameter1" value="value1" />
+		<Parameter name ="testParameter2" value="value2" />
+		<Parameter name ="TestDataPath" value="TestData\" />
+	</TestRunParameters>
+</RunSettings>

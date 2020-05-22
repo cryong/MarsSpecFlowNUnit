@@ -1,0 +1,7 @@
+﻿{
+    "Browser" : "Chrome",
+    "BaseURL" : "http://localhost:5000",
+    "ReportPath" : "Reports\\",
+    "TestDataPath" : "TestData\\",
+    "ScreenShotPath" : "Reports\\ScreenShot"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="SOAP_and_REST" soapui-version="5.5.0" projectRoot="${workspaceDir}" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:project name="calculator">calculator-soapui-project.xml</con:project>
+  <con:project name="CountryInfoService- SOAP">CountryInfoService-soapui-project.xml</con:project>
+  <con:project name="Dataaccess - SOAP">Dataaccess-soapui-project.xml</con:project>
+  <con:project name="DogCeo">DogCeo-soapui-project.xml</con:project>
+  <con:project name="Dummy Rest API">Dummy-Rest-API-soapui-project.xml</con:project>
+  <con:project name="isbnservice">isbnservice-soapui-project.xml</con:project>
+  <con:project name="PetStore">PetStore-soapui-project.xml</con:project>
+  <con:project name="Reddit Javascript">Reddit-Javascript-soapui-project.xml</con:project>
+  <con:project name="Reqres.in">SOAP_ui_project.xml</con:project>
+  <con:project name="www.thomas-bayer">www-thomas-bayer-soapui-project.xml</con:project>
+  <con:collectInfoForSupport>false</con:collectInfoForSupport>
+</con:soapui-workspace>

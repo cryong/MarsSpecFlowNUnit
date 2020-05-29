@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="508102af-3ef7-47e4-85d5-a83de8edf8de" activeEnvironment="Default" name="isbnservice" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1ede2b8a-871a-4976-b964-1e81ae13378a" wsaVersion="NONE" name="ISBNServiceSoapBinding" type="wsdl" bindingName="{http://webservices.daehosting.com/ISBN}ISBNServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.daehosting.com/services/isbnservice.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint></con:endpoints><con:operation id="42a40725-c0b0-4a16-b5cd-831b3cace511" isOneWay="false" action="" name="IsValidISBN10" bindingOperationName="IsValidISBN10" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="df7d4f73-a6c3-4eb0-9dff-8dab49c78af3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <isbn:IsValidISBN10>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN10>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request"/></con:call></con:operation><con:operation id="464ee0d2-fab7-4291-847c-40b1a88eb17b" isOneWay="false" action="" name="IsValidISBN13" bindingOperationName="IsValidISBN13" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4e38a978-6d7e-4d22-a1d4-6bb52f2459ff" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <isbn:IsValidISBN13>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN13>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="f4ee9e1b-136e-44cf-9834-3ceba89c17ac" wsaVersion="NONE" name="ISBNServiceSoapBinding12" type="wsdl" bindingName="{http://webservices.daehosting.com/ISBN}ISBNServiceSoapBinding12" soapVersion="1_2" anonymous="optional" definition="http://webservices.daehosting.com/services/isbnservice.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.daehosting.com/services/isbnservice.wso?WSDL"><con:part><con:url>http://webservices.daehosting.com/services/isbnservice.wso?WSDL</con:url><con:content><![CDATA[<definitions name="ISBNService" targetNamespace="http://webservices.daehosting.com/ISBN" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://webservices.daehosting.com/ISBN">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://webservices.daehosting.com/ISBN">
+      <xs:element name="IsValidISBN13">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISBN" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN13Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsValidISBN13Result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN10">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISBN" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsValidISBN10Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsValidISBN10Result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="IsValidISBN13SoapRequest">
+    <part name="parameters" element="tns:IsValidISBN13"/>
+  </message>
+  <message name="IsValidISBN13SoapResponse">
+    <part name="parameters" element="tns:IsValidISBN13Response"/>
+  </message>
+  <message name="IsValidISBN10SoapRequest">
+    <part name="parameters" element="tns:IsValidISBN10"/>
+  </message>
+  <message name="IsValidISBN10SoapResponse">
+    <part name="parameters" element="tns:IsValidISBN10Response"/>
+  </message>
+  <portType name="ISBNServiceSoapType">
+    <operation name="IsValidISBN13">
+      <documentation>The test is done by calculation on the first 12 digits and compare the result with the checksum number at the end. You have to pass a 13 digits number.</documentation>
+      <input message="tns:IsValidISBN13SoapRequest"/>
+      <output message="tns:IsValidISBN13SoapResponse"/>
+    </operation>
+    <operation name="IsValidISBN10">
+      <documentation>The test is done by calculation on the first 9 digits and compare the result with the checksum number at the end. You have to pass a 10 digits number or 8 digits and an X.</documentation>
+      <input message="tns:IsValidISBN10SoapRequest"/>
+      <output message="tns:IsValidISBN10SoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="ISBNServiceSoapBinding" type="tns:ISBNServiceSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="IsValidISBN13">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsValidISBN10">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="ISBNServiceSoapBinding12" type="tns:ISBNServiceSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="IsValidISBN13">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsValidISBN10">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ISBNService">
+    <documentation>DataFlex Web Service to validate ISBN numbers.</documentation>
+    <port name="ISBNServiceSoap" binding="tns:ISBNServiceSoapBinding">
+      <soap:address location="http://webservices.daehosting.com/services/isbnservice.wso"/>
+    </port>
+    <port name="ISBNServiceSoap12" binding="tns:ISBNServiceSoapBinding12">
+      <soap12:address location="http://webservices.daehosting.com/services/isbnservice.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint></con:endpoints><con:operation id="217238c9-d1e0-4014-be2d-7bcbd39681b7" isOneWay="false" action="" name="IsValidISBN10" bindingOperationName="IsValidISBN10" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="20d6bb0e-d48c-4488-9137-3319d01da6db" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN10>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN10>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fc7fd60f-789f-4cb5-a93b-a245d128643b" isOneWay="false" action="" name="IsValidISBN13" bindingOperationName="IsValidISBN13" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="30bae8aa-a99d-4ad8-aba3-4cf0b3286deb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN13>\r
+         <isbn:sISBN>?</isbn:sISBN>\r
+      </isbn:IsValidISBN13>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="8f042cd4-fbd5-4d51-8c93-636b3a31b421" name="ISBNServiceSoapBinding12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="aa41fa6d-2484-41e2-a0db-27fa33d87c52" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IsValidISBN13 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="eef14ead-b94a-4699-9946-945e762020ad" name="IsValidISBN13"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ISBNServiceSoapBinding12</con:interface><con:operation>IsValidISBN13</con:operation><con:request name="IsValidISBN13" id="c09cf18d-7667-4811-ab1c-ae0b04dde37f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN13>\r
+         <isbn:sISBN>978-1983591259</isbn:sISBN>\r
+      </isbn:IsValidISBN13>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="c4e75041-775d-491e-a83a-23510ff8bfec" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="SOAP Response" id="8ea31bb1-a195-4033-8733-dd9c4255550a" name="SOAP Response"/><con:assertion type="XPath Match" id="eb796f7f-9d8a-4212-8593-9231c0974352" name="XPath Match"><con:configuration><path>declare namespace m='http://webservices.daehosting.com/ISBN';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//m:IsValidISBN13Result</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN13Request" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e7ba65b2-f548-4c5a-b244-e65f74164d17" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IsValidISBN10 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="04ba6143-aead-4134-a58f-8f95228620cf" name="IsValidISBN10 - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ISBNServiceSoapBinding12</con:interface><con:operation>IsValidISBN10</con:operation><con:request name="IsValidISBN10 - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1916ac56-24cf-4753-b4ab-7aed22f791c4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.daehosting.com/services/isbnservice.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:isbn="http://webservices.daehosting.com/ISBN">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <isbn:IsValidISBN10>\r
+         <isbn:sISBN>1983591254</isbn:sISBN>\r
+      </isbn:IsValidISBN10>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="7540d04d-d559-4596-b542-99b979786d96" name="SOAP Response"/><con:assertion type="Valid HTTP Status Codes" id="4faeb91d-5671-4458-b622-2276a536528d" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="b5eed36d-1350-4f71-b1ea-199fc7f4ac70" name="XPath Match"><con:configuration><path>declare namespace m='http://webservices.daehosting.com/ISBN';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//m:IsValidISBN10Result</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.daehosting.com/ISBN/ISBNServiceSoapType/IsValidISBN10Request"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

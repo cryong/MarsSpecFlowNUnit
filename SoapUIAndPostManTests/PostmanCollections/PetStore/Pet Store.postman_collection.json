@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "bdd9d854-9b13-42b1-8aba-509648de9e54",
+		"name": "Pet Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PET",
+			"item": [
+				{
+					"name": "Add a new pet record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "86be34d8-5d93-4739-9214-927cdbf6e265",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"petId\", jsonData.id);",
+									"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"name\"));",
+									"    pm.expect(jsonData.category.name).to.eql(pm.environment.get(\"category\"));",
+									"    pm.expect(jsonData.status).to.eql(pm.environment.get(\"status\"));",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 184556,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"{{category}}\"\r\n  },\r\n  \"name\": \"{{name}}\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"{{status}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pet/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pet",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch  pet record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d9c6131-f75a-40fc-8734-5eed4a33e9e4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"name\"));",
+									"    pm.expect(pm.response.json().category.name).to.eql(pm.environment.get(\"category\"));",
+									"    pm.expect(pm.response.json().status).to.eql(pm.environment.get(\"status\"));",
+									"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"petId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pet/{{petId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update pet record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72aea39e-66d0-48b3-a3fb-bca876121788",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"name\"));",
+									"    pm.expect(pm.response.json().category.name).to.eql(pm.environment.get(\"category\"));",
+									"    pm.expect(pm.response.json().status).to.eql(pm.environment.get(\"newStatus\"));",
+									"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"petId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{petId}},\r\n    \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"{{category}}\"\r\n  },\r\n  \"name\": \"{{name}}\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"status\": \"{{newStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pet",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch  pet record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d9c6131-f75a-40fc-8734-5eed4a33e9e4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.json().name).to.eql(pm.environment.get(\"name\"));",
+									"    pm.expect(pm.response.json().category.name).to.eql(pm.environment.get(\"category\"));",
+									"    pm.expect(pm.response.json().status).to.eql(pm.environment.get(\"newStatus\"));",
+									"    pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"petId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pet/{{petId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete pet record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c60b58bd-11fe-46ce-aed7-5023de16d2df",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pet/{{petId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

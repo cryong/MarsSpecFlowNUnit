@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "5e386685-fc2a-4243-ae54-a2bde17dd5e2",
+		"name": "DummyRestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validate multi-step workflows",
+			"item": [
+				{
+					"name": "Create new employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2138efb5-19bb-4945-81e2-cb2a98c5f851",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Value Check\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.name).to.eql(pm.environment.get(\"employeeName\"));",
+									"    pm.expect(jsonData.data.salary).to.eql(pm.environment.get(\"employeeSalary\"));",
+									"    pm.expect(jsonData.data.age).to.eql(pm.environment.get(\"employeeAge\"));",
+									"    pm.environment.set(\"employeeId\", jsonData.data.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{employeeName}}\",\n    \"salary\": \"{{employeeSalary}}\",\n    \"age\": \"{{employeeAge}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "823938d4-d27f-4306-8792-5ff12dbd1a9e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Value Checke\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.employee_name).to.eql(pm.environment.get(\"employeeName\"));",
+									"    pm.expect(jsonData.data.employee_salary).to.eql(pm.environment.get(\"employeeSalary\"));",
+									"    pm.expect(jsonData.data.employee_age).to.eql(pm.environment.get(\"employeeAge\"));",
+									"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"employeeId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/employee/{{employeeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"employee",
+								"{{employeeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "480d4d5e-6545-48fe-a4f3-efa29a771dc3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Value Check\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.employee_name).to.eql(pm.environment.get(\"employeeNameNew\"));",
+									"    pm.expect(jsonData.data.employee_salary).to.eql(pm.environment.get(\"employeeSalaryNew\"));",
+									"    pm.expect(jsonData.data.employee_age).to.eql(pm.environment.get(\"employeeAgeNew\"));",
+									"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"employeeId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{employeeNameNew}}\",\n    \"salary\": \"{{employeeSalaryNew}}\",\n    \"age\": \"{{employeeAgeNew}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/update/{{employeeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"update",
+								"{{employeeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read updated employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "467b3d4e-72bd-4b82-9c9e-f63f89c5b5ed",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Value Check\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.employee_name).to.eql(pm.environment.get(\"employeeNameNew\"));",
+									"    pm.expect(jsonData.data.employee_salary).to.eql(pm.environment.get(\"employeeSalaryNew\"));",
+									"    pm.expect(jsonData.data.employee_age).to.eql(pm.environment.get(\"employeeAgeNew\"));",
+									"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"employeeId\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/employee/{{employeeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"employee",
+								"{{employeeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "722e0979-98a6-4bf5-ad5b-afd82117f534",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check deletion message\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"successfully! deleted Records\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/delete/{{employeeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"delete",
+								"{{employeeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check the deleted record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4cb1a0ce-9fd2-48ca-a19a-1dfe2cedf9bb",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Check the message for no record is found\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data).to.eql(\"Record does not found.\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/employee/{{employeeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"employee",
+								"{{employeeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

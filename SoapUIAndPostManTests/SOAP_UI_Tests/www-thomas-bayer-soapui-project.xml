@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5043cfc6-eca0-4b66-9415-8d58498295e2" activeEnvironment="Default" name="www.thomas-bayer" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="854656b4-2b6a-4e7c-81be-6637441d5ccb" wsaVersion="NONE" name="BLZServiceSOAP11Binding" type="wsdl" bindingName="{http://thomas-bayer.com/blz/}BLZServiceSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="http://www.thomas-bayer.com/axis2/services/BLZService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint></con:endpoints><con:operation id="9ce7387b-9976-409b-8616-b3619290e3f7" isOneWay="false" action="" name="getBank" bindingOperationName="getBank" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6dcb6db1-b4cd-4404-9f08-4d14d71c4a4d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>?</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://thomas-bayer.com/blz/BLZServicePortType/getBankRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5ac950f7-85d2-4977-9e89-0f7016fa9e01" wsaVersion="NONE" name="BLZServiceSOAP12Binding" type="wsdl" bindingName="{http://thomas-bayer.com/blz/}BLZServiceSOAP12Binding" soapVersion="1_2" anonymous="optional" definition="http://www.thomas-bayer.com/axis2/services/BLZService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.thomas-bayer.com/axis2/services/BLZService?wsdl"><con:part><con:url>http://www.thomas-bayer.com/axis2/services/BLZService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://thomas-bayer.com/blz/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://thomas-bayer.com/blz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:documentation>BLZService</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://thomas-bayer.com/blz/">
+      <xsd:element name="getBank" type="tns:getBankType"/>
+      <xsd:element name="getBankResponse" type="tns:getBankResponseType"/>
+      <xsd:complexType name="getBankType">
+        <xsd:sequence>
+          <xsd:element name="blz" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBankResponseType">
+        <xsd:sequence>
+          <xsd:element name="details" type="tns:detailsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="detailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="bezeichnung" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="bic" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="ort" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="plz" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getBank">
+    <wsdl:part name="parameters" element="tns:getBank"/>
+  </wsdl:message>
+  <wsdl:message name="getBankResponse">
+    <wsdl:part name="parameters" element="tns:getBankResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="BLZServicePortType">
+    <wsdl:operation name="getBank">
+      <wsdl:input message="tns:getBank"/>
+      <wsdl:output message="tns:getBankResponse" wsaw:Action="http://thomas-bayer.com/blz/BLZService/getBankResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BLZServiceSOAP11Binding" type="tns:BLZServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap:operation style="document" soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BLZServiceSOAP12Binding" type="tns:BLZServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap12:operation style="document" soapAction=""/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BLZServiceHttpBinding" type="tns:BLZServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getBank">
+      <http:operation location="BLZService/getBank"/>
+      <wsdl:input>
+        <mime:content part="getBank" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getBank" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BLZService">
+    <wsdl:port name="BLZServiceSOAP11port_http" binding="tns:BLZServiceSOAP11Binding">
+      <soap:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+    <wsdl:port name="BLZServiceSOAP12port_http" binding="tns:BLZServiceSOAP12Binding">
+      <soap12:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+    <wsdl:port name="BLZServiceHttpport" binding="tns:BLZServiceHttpBinding">
+      <http:address location="http://www.thomas-bayer.com/axis2/services/BLZService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint></con:endpoints><con:operation id="62efd4fa-760e-456b-aa9c-61944e92d441" isOneWay="false" action="" name="getBank" bindingOperationName="getBank" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2a7f7210-5621-4899-a714-708b43dad800" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <blz:getBank>\r
+         <blz:blz>10000000</blz:blz>\r
+      </blz:getBank>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://thomas-bayer.com/blz/BLZServicePortType/getBankRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="d03cc634-7cc9-4fb7-9918-9f55f2d051de" name="BLZServiceSOAP12Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="a543dc3a-7ed2-4cbf-8e0f-72e077bf4f70" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getBank TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="47650006-acb0-4553-8666-0da52dcdfbac" name="getBank"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BLZServiceSOAP12Binding</con:interface><con:operation>getBank</con:operation><con:request name="getBank" id="2eb01e82-1b61-48b3-954f-ddbbc918ec6f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <blz:getBank>\r
+         <blz:blz>10000000</blz:blz>\r
+      </blz:getBank>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="81d5635a-9cb5-4732-9704-d1f5727756a4" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="b5d4caae-7005-4884-9adf-a2ba4e3b7afe" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://thomas-bayer.com/blz/';
+//ns1:bic</path><content>MARKDEF1100</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="18b4a11d-3f9d-4c27-8bb2-e62b916f2a7a"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://thomas-bayer.com/blz/BLZServicePortType/getBankRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="06c02bf6-4d56-4873-b8e0-7053dca18e3c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getBank Negative TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d2cd9630-20d2-4388-a791-52641423c090" name="getBank"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BLZServiceSOAP12Binding</con:interface><con:operation>getBank</con:operation><con:request name="getBank" id="2eb01e82-1b61-48b3-954f-ddbbc918ec6f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.thomas-bayer.com/axis2/services/BLZService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <blz:getBank>\r
+         <blz:blz>11234</blz:blz>\r
+      </blz:getBank>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="81d5635a-9cb5-4732-9704-d1f5727756a4" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="b5d4caae-7005-4884-9adf-a2ba4e3b7afe" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://www.w3.org/2003/05/soap-envelope';
+//soapenv:Reason/soapenv:Text</path><content>Keine Bank zur BLZ 11234 gefunden!</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://thomas-bayer.com/blz/BLZServicePortType/getBankRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

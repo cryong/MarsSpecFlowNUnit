@@ -69,16 +69,7 @@ namespace SpecFlowTest.StepsDefinitions
         [Then(@"my profile page displays the newly added (?:.+?)")]
         public void ThenMyProfilePageDisplaysTheNewlyAdded()
         {
-            bool isFound;
-            try
-            {
-                isFound = ProfilePage.MainSection.SearchForRow(_context.Get<SearchableItem>());
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            Assert.IsTrue(isFound);
+            Assert.IsTrue(ProfilePage.MainSection.SearchForRow(_context.Get<SearchableItem>()));
         }
 
         [Then(@"the success popup message ""(.*)"" is displayed")]
@@ -95,17 +86,7 @@ namespace SpecFlowTest.StepsDefinitions
 
         private void CheckForSuccessPopUp(string expectedMessage)
         {
-            string actualMessage;
-            try
-            {
-                actualMessage = ProfilePage.GetSuccessPopUpMessage();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            Assert.That(expectedMessage, Is.EqualTo(actualMessage));
+            Assert.That(expectedMessage, Is.EqualTo(ProfilePage.GetSuccessPopUpMessage()));
         }
 
         private SearchableItem CreateProfileDetail(ProfileInfoType type, Table table)

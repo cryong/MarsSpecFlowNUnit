@@ -17,7 +17,7 @@ namespace NUnitTest.Tests
 {
     public class ShareSkillSearchCategoryTest : LoginSetUp
     {
-        [TestCaseSource(typeof(ShareSkillSearchCategoryTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_FilterCategory_Expect_FilterSuccessful(ShareSkill expectedSkilShare, string category, string subcategory)
         {
             try
@@ -58,7 +58,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<ShareSkill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("Cucumber"), "Programming & Tech", "QA");
         }

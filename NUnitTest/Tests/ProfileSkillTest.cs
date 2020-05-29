@@ -12,8 +12,7 @@ namespace NUnitTest.Tests
 {
     public class ProfileSkillTest : LoginSetUp
     {
-        //[Test]
-        [TestCaseSource(typeof(ProfileSkillTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ValidCertficationDetails_Expect_AdddSuccessful(Skill skill)
         {
             try
@@ -51,7 +50,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<Skill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("1"));
             yield return new TestCaseData(ReadFromExcel("2"));

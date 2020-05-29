@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MarsCommonFramework.DataSetup;
 using MarsFramework.Factory;
 using MarsFramework.Utilities;
@@ -10,13 +7,12 @@ using MarsWebService.Model;
 using MarsWebService.Pages.SkillShare;
 using NUnit.Framework;
 using NUnitTest.SetUp;
-using OpenQA.Selenium;
 
 namespace NUnitTest.Tests
 {
     public class ShareSkillDeleteTest : LoginSetUp
     {
-        [TestCaseSource(typeof(ShareSkillDeleteTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ExistingSkillData_Expect_DeleteSuccessful(ShareSkill shareSkillToDelete)
         {
             try
@@ -37,7 +33,6 @@ namespace NUnitTest.Tests
                 {
                     Assert.AreEqual(listingManagementPage.Url, Driver.GetCurrentUrl());
                     Assert.That($"{shareSkillToDelete.Title} has been deleted", Is.EqualTo(listingManagementPage.GetSuccessPopUpMessage()));
-                    //Assert.Throws<WebDriverTimeoutException>(() => listingManagementPage.SearchShareSkill(shareSkillToDelete));
                 });
             }
             catch (Exception e)
@@ -56,7 +51,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<ShareSkill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("JMeter"));
         }

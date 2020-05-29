@@ -1,9 +1,7 @@
-﻿using System;
-using MarsFramework.WebDriver;
+﻿using MarsFramework.WebDriver;
 using NUnit.Framework;
 using MarsWebService.Pages.Profile;
 using TechTalk.SpecFlow;
-using MarsFramework.Service;
 
 namespace SpecFlowTest.StepsDefinitions
 {
@@ -33,18 +31,7 @@ namespace SpecFlowTest.StepsDefinitions
         [Then(@"available hours is updated with a message ""(.*)""")]
         public void ThenAvailableHoursIsUpdatedWithAMessage(string expectedMessage)
         {
-            try
-            {
-                Assert.That(expectedMessage, Is.EqualTo(ProfilePage.GetSuccessPopUpMessage()));
-            }
-            catch (Exception e)
-            {
-                if (e is AssertionException)
-                {
-                    throw;
-                }
-                Assert.Fail($"Error has occurred\nMessage : {e.Message}\nStackTrace : {e.StackTrace}");
-            }
+            Assert.That(expectedMessage, Is.EqualTo(ProfilePage.GetSuccessPopUpMessage()));
         }
     }
 }

@@ -87,16 +87,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\ProfileDescriptionTest.cs" />
     <Compile Include="Tests\AvailabilityInformationTest.cs" />
     <Compile Include="Context\DataSetUpContext.cs" />
     <Compile Include="Tests\RegistrationTest.cs" />
     <Compile Include="Tests\ChangePasswordTest.cs" />
     <Compile Include="SetUp\LoginSetUp.cs" />
-    <Compile Include="DriverTest.cs" />
     <Compile Include="SetUp\BaseSetUp.cs" />
     <Compile Include="Tests\SignInTest.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="LoginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ProfileEducationTest.cs" />
     <Compile Include="Tests\ProfileCertificationTest.cs" />

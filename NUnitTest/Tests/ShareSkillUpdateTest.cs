@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MarsCommonFramework.DataSetup;
 using MarsFramework.Factory;
 using MarsFramework.Utilities;
 using MarsWebService.Model;
-using MarsWebService.Pages.Profile;
 using MarsWebService.Pages.SkillShare;
 using NUnit.Framework;
 using NUnitTest.SetUp;
@@ -17,19 +13,14 @@ namespace NUnitTest.Tests
     [TestFixture]
     public class ShareSkillUpdateTest : LoginSetUp
     {
-
-        [TestCaseSource(typeof(ShareSkillUpdateTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ValidShareSkillData_Expect_UpdateSuccessful(ShareSkill addedShareSkill, ShareSkill shareSkillToUpdate)
         {
             try
             {
-                // arrange
                 DataSetUpHelper helper = new DataSetUpHelper(ValidCredentials.Username, ValidCredentials.Password);
                 addedShareSkill.Id = helper.GetOrAdd(addedShareSkill);
                 _setUpContext.Add(addedShareSkill);
-
-                // act
-                // find an existing skill
 
                 ListingManagementPage listingManagementPage = new ListingManagementPage(Driver);
                 listingManagementPage.Open();
@@ -40,7 +31,6 @@ namespace NUnitTest.Tests
                 _setUpContext.Add(shareSkillToUpdate);
                 Driver.WaitForAjax();
 
-                // assert
                 Assert.Multiple(() =>
                 {
                     Assert.AreEqual(listingManagementPage.Url, Driver.GetCurrentUrl());
@@ -63,7 +53,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<ShareSkill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("Selenium"), ReadFromExcel("Cucumber"));
         }

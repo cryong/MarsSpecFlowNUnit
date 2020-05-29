@@ -6,7 +6,6 @@ using MarsWebService.Pages.Profile;
 using SpecFlowTest.Base;
 using TechTalk.SpecFlow;
 using MarsWebService.Pages.Home;
-using MarsFramework.Service;
 
 namespace SpecFlowTest.StepsDefinitions
 {
@@ -46,7 +45,7 @@ namespace SpecFlowTest.StepsDefinitions
         [Then(@"my profile page is displayed")]
         public void ThenMyProfilePageIsDisplayed()
         {
-            Assert.That(_driver.GetCurrentUrl, Is.EqualTo(new ProfilePage(DriverManager.GetDriver()).Url));
+            Assert.That(_driver.GetCurrentUrl, Is.EqualTo(new ProfilePage(_driver).Url));
         }
     }
 }

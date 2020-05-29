@@ -12,10 +12,9 @@ namespace NUnitTest.Tests
     public class ChangePasswordTest : LoginSetUp
     {
         [Test]
-        // use Combinatorial Attribute
         public void When_SamePassword_Expect_PasswordChangeFailure()
         {
-            ChangePasswordPage changePasswordPage = new ProfilePage(DriverManager.GetDriver()).HeaderBar.GoToAccountMenuItem("Change Password")
+            ChangePasswordPage changePasswordPage = new ProfilePage(Driver).HeaderBar.GoToAccountMenuItem("Change Password")
                                                     as ChangePasswordPage;
             changePasswordPage.ChangePassword(ValidCredentials.Password, ValidCredentials.Password, ValidCredentials.Password);
             try
@@ -24,7 +23,7 @@ namespace NUnitTest.Tests
                 {
                     Assert.That(changePasswordPage.IsOpen(), Is.True);
                     Assert.That("Current Password and New Password should not be same",
-                                Is.EqualTo(new ProfilePage(DriverManager.GetDriver()).GetErrorPopUpMessage()));
+                                Is.EqualTo(new ProfilePage(Driver).GetErrorPopUpMessage()));
                 });
             }
             catch (Exception e)

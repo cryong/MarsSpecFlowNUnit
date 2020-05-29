@@ -1,7 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using BoDi;
 using MarsFramework.Contexts;
-using MarsFramework.Model;
 using TechTalk.SpecFlow;
 using MarsFramework.WebDriver;
 using TechTalk.SpecFlow.Bindings;
@@ -134,7 +133,7 @@ namespace SpecFlowTest.Base
             //BindingError = 3,
             //TestError = 4,
             //Skipped = 5
-            ScenarioExecutionStatus stepStatus = scenarioContext.ScenarioExecutionStatus;
+            //ScenarioExecutionStatus stepStatus = scenarioContext.ScenarioExecutionStatus;
 
             //public enum Status
             //{

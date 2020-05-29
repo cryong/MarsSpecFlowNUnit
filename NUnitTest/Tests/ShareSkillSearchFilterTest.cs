@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AventStack.ExtentReports.Utils;
 using MarsCommonFramework.DataSetup;
 using MarsFramework.Factory;
@@ -18,7 +16,7 @@ namespace NUnitTest.Tests
     [TestFixture]
     public class ShareSkillSearchFilterTest : LoginSetUp
     {
-        [TestCaseSource(typeof(ShareSkillSearchFilterTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_FilterByLocationType_Expect_FilterSuccessful(ShareSkill expectedSkilShare)
         {
             try
@@ -57,7 +55,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<ShareSkill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("Cypress"));
         }

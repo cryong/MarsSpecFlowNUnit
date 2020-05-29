@@ -13,8 +13,7 @@ namespace NUnitTest.Tests
     [TestFixture]
     public class ProfileEducationTest : LoginSetUp
     {
-        [Test]
-        [TestCaseSource(typeof(ProfileEducationTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ValidEducationDetails_Expect_AdddSuccessful(Education education)
         {
             try
@@ -52,7 +51,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<Education>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("1"));
         }

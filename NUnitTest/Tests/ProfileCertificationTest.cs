@@ -13,9 +13,7 @@ namespace NUnitTest.Tests
     [TestFixture]
     public class ProfileCertificationTest : LoginSetUp
     {
-
-        [Test]
-        [TestCaseSource(typeof(ProfileCertificationTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ValidCertficationDetails_Expect_AdddSuccessful(Certification certification)
         {
             try
@@ -53,7 +51,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<Certification>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("1"));
             yield return new TestCaseData(ReadFromExcel("2"));

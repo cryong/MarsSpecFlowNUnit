@@ -12,7 +12,7 @@ namespace NUnitTest.Tests
 {
     public class ShareSkillAddTest : LoginSetUp
     {
-        [TestCaseSource(typeof(ShareSkillAddTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_ValidShareSkillData_Expect_AddSuccessful(ShareSkill addedShareSkill)
         {
             try
@@ -53,7 +53,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<ShareSkill>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("Cypress"));
         }

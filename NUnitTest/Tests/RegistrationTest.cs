@@ -14,7 +14,7 @@ namespace NUnitTest.Tests
     {
 
         [Test]
-        [TestCaseSource(typeof(RegistrationTest), nameof(MyData))]
+        [TestCaseSource(nameof(TestData))]
         public void When_InvalidInput_Expect_RegistrationFailure(Registration registrationData)
         {
             try
@@ -44,7 +44,7 @@ namespace NUnitTest.Tests
             ExcelData data = ExcelDataReaderUtil.FetchRowUsingKey(key);
             return ObjectFactory.CreateInstance<Registration>(data);
         }
-        public static IEnumerable<TestCaseData> MyData()
+        public static IEnumerable<TestCaseData> TestData()
         {
             yield return new TestCaseData(ReadFromExcel("MissingFirstName"));
             yield return new TestCaseData(ReadFromExcel("MissingLastName"));

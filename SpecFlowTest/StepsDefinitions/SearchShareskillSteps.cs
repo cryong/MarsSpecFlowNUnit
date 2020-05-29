@@ -9,21 +9,20 @@ using MarsWebService.Pages.Search;
 using MarsWebService.Pages.SkillShare;
 using TechTalk.SpecFlow;
 using MarsCommonFramework.DataSetup;
-using MarsFramework.Service;
 using AventStack.ExtentReports.Utils;
 using SpecFlowTest.Utilities;
 
 namespace SpecFlowTest.StepsDefinitions
 {
     [Binding]
-    public sealed class SearchShareskillSteps
+    public sealed class SearchShareSkillSteps
     {
         private readonly ScenarioContext _context;
         private readonly Driver _driver;
         private SearchResultPage searchResultPage;
         private readonly DataSetUpHelper _helper;
 
-        public SearchShareskillSteps(ScenarioContext context, Driver driver, DataSetUpHelper helper)
+        public SearchShareSkillSteps(ScenarioContext context, Driver driver, DataSetUpHelper helper)
         {
             _context = context;
             _driver = driver;
